@@ -12,7 +12,7 @@ public:
 			R = Char2Int(s[i + 1]);
 			if (L >= R)
 			{
-				sum += L; 
+				sum += L; ///////
 			}
 			else
 			{
