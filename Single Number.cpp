@@ -7,18 +7,20 @@ using namespace std;
 
 class Solution {
 public:
-	int singleNumber(vector<int>& nums) {
-		unordered_map<size_t, int> map0, map1;
-		hash<int> hash_fn;
-		for (int i = 0; i < nums.size(); i++)
+	bool isNumber(string s) {
+		bool result=false;
+		for (int i = 0; i < s.length(); i++)
 		{
-			map0[hash_fn(nums[i])]++;
-			map1[hash_fn(nums[i])] = nums[i];
+
+
+
+
+
 		}
-		for (auto &it : map0)
-			if (it.second == 1)
-				return map1[it.first];
-		return 1;
+
+
+
+		return result;
 	}
 };
 
@@ -26,9 +28,9 @@ public:
 
 int main()
 {
-	vector<int>num = { 1, 2, 3, 4, 2, 3, 4, 4 };
+	string s;
 	Solution sol;
-	cout << sol.singleNumber(num);
+	cout << sol.singleNumber(s);
 
 	return 0;
 }
