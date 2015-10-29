@@ -1,4 +1,4 @@
-class Solution {
+/*class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         int len=nums.size();
@@ -21,5 +21,28 @@ public:
         }
         
         return len-count;
+    }
+};*/  slow solution;
+
+//fast solution
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int n=nums.size();
+        if(n<2)
+        {
+            return n;
+        }
+        int length=1;
+        
+        for(int i=1;i<n;i++)
+        {
+            if(nums[i]!=nums[length-1])
+            {
+                nums[length]=nums[i];
+                length++;
+            }
+        }
+        return length;
     }
 };
