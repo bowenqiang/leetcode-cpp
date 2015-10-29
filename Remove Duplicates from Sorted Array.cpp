@@ -1,27 +1,25 @@
-
-////works but slow, time limit exceeded;
-/*class Solution {
+class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
-        int i=0,counter=0;
+        int len=nums.size();
+        if(len<2)
+        {
+            return len;
+        }
         
-        while(i!=nums.size()-counter)
+        int count=0;
+        for(int i=0;i<len-count-1;)
         {
             if(nums[i]==nums[i+1])
             {
-                counter++;
-                int j=i+1;
-                while(j!=nums.size()-1)
-                {
-                    swap(nums[j],nums[j+1]);
-                    j++;
-                }
+                nums.push_back(nums[i]);
+                nums.erase(nums.begin()+i);
+                count++;
+                continue;
             }
-            else
-            {
-                i++;
-            }
+            i++;
         }
-        return nums.size()-counter;
+        
+        return len-count;
     }
-};*/
+};
