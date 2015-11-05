@@ -11,16 +11,16 @@ public:
 	MinStack()
 	{
 		head = new LinkedList;
-		head->val = NULL;
+		head->val = INT_MAX;
 		head->next = NULL;
 		last = head;
 	}
 
 	void push(int x) {
-		last->val = x;
 		LinkedList *p;
 		p = new LinkedList;
-		p->val = NULL;
+		
+		p->val = x+1-1;
 		p->next = NULL;
 		last->next = p;
 		last = p;
@@ -31,33 +31,25 @@ public:
 	void pop() {
 		LinkedList *p;
 		p = head;
-		min = p->val;
 		if (p->next == NULL)
-		{
 			return;
-		}
-		while (!p->next->next->next == NULL)
+		min = p->val;
+		while (p->next != last)
 		{
-			min = min < p->val ? min : p->val;
 			p = p->next;
+			min = min < p->val ? min : p->val;
 		}
-		p->next->next = NULL;
-		p->next->val = NULL;
-		last = p->next;
+		p->next = NULL;
+		last = p;
+
+		
+
 
 
 	}
 
 	int top() {
-		LinkedList *p;
-		p = head;
-		if (p->next == NULL)
-			return 0;
-		while (!p->next->next == NULL)
-		{
-			p = p->next;
-		}
-		return p->val;
+		return last->val;
 
 	}
 
