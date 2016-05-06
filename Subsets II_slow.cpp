@@ -10,8 +10,6 @@ public:
     }
     void backtracking(vector<vector<int>> &ans,vector<int> result,vector<int>nums,int idx)
     {
-        if(idx==nums.size()+1)
-            return;
         if(isDup(ans,result))
         {
             return;
