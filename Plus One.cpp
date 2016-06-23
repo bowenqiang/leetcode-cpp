@@ -15,3 +15,25 @@ public:
     return stack;
     }
 };
+/*
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        addOne(digits,1);
+        return digits;
+        
+    }
+    void addOne(vector<int>& digits,int c)
+    {
+        for(auto it=digits.rbegin();it!=digits.rend();it++)
+        {
+            *it+=c;
+            c=*it/10;
+            *it=*it%10;
+            
+        }
+        if(c>0) digits.insert(digits.begin(),1);
+        
+    }
+};
+*/
