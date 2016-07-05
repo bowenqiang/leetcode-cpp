@@ -1,38 +1,22 @@
 class Solution {
 public:
     string addBinary(string a, string b) {
+        const int size=a.size()>b.size()?a.size():b.size();
         reverse(a.begin(),a.end());
         reverse(b.begin(),b.end());
-        if(a.length()>b.length())
+        string ans;
+        int carry=0;
+        for(int i=0;i<size;i++)
         {
-            int steps=a.length()-b.length();
-            for(int i=0;i<steps;i++)
-            {
-                b+='0';
-            }
+            int ai=i<a.size()?a[i]-'0':0;
+            int bi=i<b.size()?b[i]-'0':0;
+            int c=(ai+bi+carry)%2;
+            carry=(ai+bi+carry)/2;
+            ans.insert(ans.begin(),c+'0');
         }
-        else
-        {
-            int steps=b.length()-a.length();
-            for(int i=0;i<steps;i++)
-            {
-                a+='0';
-            }
-        }
-        int length=a.length();
-        string res;
-        char c='0';
-        for(int i=0;i<length;i++)
-        {
-            res+=(((a[i]-'0')+(b[i]-'0')+(c-'0'))%2+'0');
-            c=((a[i]-'0')+(b[i]-'0')+(c-'0'))/2+'0';
-        }
-        if(c!='0')
-            res+=c;
-        reverse(res.begin(),res.end());
-        return res;
+        if(carry!=0)
+            ans.insert(ans.begin(),carry+'0');
+        return ans;
         
     }
-
-
 };
